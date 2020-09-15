@@ -106,11 +106,11 @@ jest.mock('./api/fetchShow')
 
 mockFetchShow.mockResolveValue(showData)
 
- test('App renders without errors', () => {
+ test('App renders without errors', async () => {
      //mockFetchShow.mockResolveValueOnce(showData)
-     const { findByText, getAllByText } = render(<App/>)
+     const { findByText, getAllByText } = render(<App />) //</App> showData = {showData}/>)
 
-     const dropdownMenu = await waitFor(() => getAllByText(/Select a season/i))     
+     const dropdownMenu = await getAllByText(/Select a season/i)
      userEvent.click(dropdownMenu)
 
      const seasonDropdown = await findByText(/Season 1/i)
@@ -118,15 +118,5 @@ mockFetchShow.mockResolveValue(showData)
     
 })
 
-// test ('Render episode list when calling fetchShow', () => {
-//     mockFetchShow.mockResolvedValueOnce(showData); //simulated running fetchshow function
-//     render( <App />)
+//mockFetchShow.mockResolveValue(showData)
 
-
-//     const button = screen.getByRole('button', {name: /get Data/i})
-//     //import userEvent above
-//     userEvent.click(button) //results in async operation being initiated. State is updated 
-
-//     const missionsList = screen.getAllByTestId(/missions/i)
-
-// })
