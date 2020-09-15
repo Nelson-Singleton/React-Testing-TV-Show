@@ -58,7 +58,7 @@ test('Episodes renders properly', () => {
 })
 
 test('Rerenders properly with props passed in', () => {
-    const {rerender} = render(<Episodes episodes = {[]} />)
+    const {rerender} = render(<Episodes episodes = {[episodeData]} />)
 
     rerender(<Episodes episodes = {episodeData}/>)
 })
