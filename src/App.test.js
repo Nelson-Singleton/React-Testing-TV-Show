@@ -104,11 +104,11 @@ jest.mock('./api/fetchShow')
   }
 }
 
-mockFetchShow.mockResolveValue(showData)
+mockFetchShow.mockResolvedValue(showData)
 
  test('App renders without errors', async () => {
      //mockFetchShow.mockResolveValueOnce(showData)
-     const { findByText, getAllByText } = render(<App />) //</App> showData = {showData}/>)
+     const { findByText, getAllByText } = render(<App showData = {res.data._embedded}/>) //</App> showData = {showData}/>)
 
      const dropdownMenu = await getAllByText(/Select a season/i)
      userEvent.click(dropdownMenu)
